@@ -34,8 +34,10 @@ initial $sdf_annotate(`SDFFILE, u_set);
 `endif
 
 initial begin
-	$fsdbDumpfile("SET.fsdb");
-	$fsdbDumpvars;
+	//$fsdbDumpfile("SET.fsdb");
+	//$fsdbDumpvars;
+	$dumpfile("SET.vcd");
+	$dumpvars;
 end
 
 initial begin

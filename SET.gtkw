@@ -1,0 +1,58 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sat Aug 29 10:07:31 2020
+[*]
+[dumpfile] "C:\Users\lin\Desktop\CIC_my\CIC_2015_grad\SET.vcd"
+[dumpfile_mtime] "Sat Aug 29 10:07:29 2020"
+[dumpfile_size] 57888
+[savefile] "C:\Users\lin\Desktop\CIC_my\CIC_2015_grad\SET.gtkw"
+[timestart] 0
+[size] 1920 1017
+[pos] -1 -1
+*-16.000000 124500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testfixture1.
+[sst_width] 197
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+testfixture1.clk
+testfixture1.en
+@c00022
+testfixture1.radius[11:0]
+@28
+(0)testfixture1.radius[11:0]
+(1)testfixture1.radius[11:0]
+(2)testfixture1.radius[11:0]
+(3)testfixture1.radius[11:0]
+(4)testfixture1.radius[11:0]
+(5)testfixture1.radius[11:0]
+(6)testfixture1.radius[11:0]
+(7)testfixture1.radius[11:0]
+(8)testfixture1.radius[11:0]
+(9)testfixture1.radius[11:0]
+(10)testfixture1.radius[11:0]
+(11)testfixture1.radius[11:0]
+@1401200
+-group_end
+@22
+testfixture1.central[23:0]
+@28
+testfixture1.valid
+@22
+testfixture1.u_set.x1[3:0]
+testfixture1.u_set.y1[3:0]
+testfixture1.u_set.x[3:0]
+testfixture1.u_set.y[3:0]
+testfixture1.candidate[7:0]
+testfixture1.u_set.r1[3:0]
+@24
+testfixture1.u_set.r1pow2[7:0]
+@420
+testfixture1.u_set.a1[7:0]
+testfixture1.u_set.b1[7:0]
+testfixture1.u_set.x_a1[3:0]
+@421
+testfixture1.u_set.y_b1[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
