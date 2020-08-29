@@ -120,8 +120,19 @@ reg signed [3:0] x_a1,y_b1;
 reg signed [8:0] a1,b1; 
 reg signed [8:0] r1pow2;
 reg signed [8:0] a1_add_b1;
-reg yes;
- 
+reg union_A;
+
+reg signed [3:0] x_a2,y_b2;
+reg signed [8:0] a2,b2;
+reg signed [8:0] r2pow2;
+reg signed [8:0] a2_add_b2;
+reg union_B;
+
+reg signed [3:0] x_a3,y_b3;
+reg signed [8:0] a3,b3;
+reg signed [8:0] r3pow2;
+reg signed [8:0] a3_add_b3;
+reg union_C;
 
 always@(*)
 begin
@@ -130,8 +141,29 @@ begin
     a1 = x_a1*x_a1;
     b1 = y_b1*y_b1;
     a1_add_b1 = a1+b1;
-    yes = a1_add_b1 <= r1pow2 ;
+    union_A = a1_add_b1 <= r1pow2 ;
 end
+
+always@(*)
+begin
+    x_a2 = x-x2;
+    y_b2 = y-y2;
+    a2 = x_a2*x_a2;
+    b2 = y_b2*y_b2;
+    a2_add_b2 = a2+b2;
+    union_B = a2_add_b2 <= r2pow2 ;
+end
+
+always@(*)
+begin
+    x_a3 = x-x3;
+    y_b3 = y-y3;
+    a3 = x_a3*x_a3;
+    b3 = y_b3*y_b3;
+    a3_add_b3 = a3+b3;
+    union_C = a3_add_b3 <= r3pow2 ;
+end
+
 
 always@(*)
 begin
@@ -149,13 +181,63 @@ begin
     endcase
 end
 
+always@(*)
+begin
+    case(r2)
+    4'd0: r2pow2 = 8'd0;
+    4'd1: r2pow2 = 8'd1;
+    4'd2: r2pow2 = 8'd4;
+    4'd3: r2pow2 = 8'd9;
+    4'd4: r2pow2 = 8'd16;
+    4'd5: r2pow2 = 8'd25;
+    4'd6: r2pow2 = 8'd36;
+    4'd7: r2pow2 = 8'd49;
+    4'd8: r2pow2 = 8'd64;
+    default: r2pow2 = 8'd0; 
+    endcase
+end
+
+always@(*)
+begin
+    case(r3)
+    4'd0: r3pow2 = 8'd0;
+    4'd1: r3pow2 = 8'd1;
+    4'd2: r3pow2 = 8'd4;
+    4'd3: r3pow2 = 8'd9;
+    4'd4: r3pow2 = 8'd16;
+    4'd5: r3pow2 = 8'd25;
+    4'd6: r3pow2 = 8'd36;
+    4'd7: r3pow2 = 8'd49;
+    4'd8: r3pow2 = 8'd64;
+    default: r3pow2 = 8'd0; 
+    endcase
+end
+
 //candidate
 always@(posedge clk or posedge rst)
 begin
     if(rst) candidate <= 8'd0; 
     else if(current_state == OPERATION && mode_buffer == 2'b00)
     begin
-        if( yes) candidate <= candidate + 8'd1;
+        if(union_A) candidate <= candidate + 8'd1;
+    end
+    else if(current_state == OPERATION && mode_buffer == 2'b01)
+    begin
+        if(union_A && union_B) candidate <= candidate + 8'd1;
+    end
+    else if(current_state == OPERATION && mode_buffer == 2'b10)
+    begin
+        if( (union_A && !union_B) || (!union_A && union_B)) candidate <= candidate + 8'd1;
+    end
+    else if(current_state == OPERATION && mode_buffer == 2'b11)
+    begin
+        if( !(union_A && union_B && union_C) )
+        begin
+            if( (union_A && union_B) || (union_B && union_C) || (union_C && union_A))
+            begin
+                candidate <= candidate + 8'd1;
+            end
+        end
     end
     else if(current_state == RESULT) candidate <= 8'd0;
 end
