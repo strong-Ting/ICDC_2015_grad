@@ -1,0 +1,13 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(17Sep2020:14:09:39):( ncverilog testfixture.v ../src/SET.v )
+s2::(17Sep2020:14:10:09):( ncverilog testfixture.v ../src/SET.v +define+TB1 )
+s3::(17Sep2020:14:10:19):( ncverilog testfixture.v ../src/SET.v +define+TB1 )
+s4::(17Sep2020:14:10:25):( ncverilog testfixture.v ../src/SET.v +define+MD1 )
+s5::(17Sep2020:14:10:34):( ncverilog testfixture.v ../src/SET.v +define+MD4 )
+s6::(17Sep2020:14:22:52):( ncverilog testfixture.v ../syn/SET_syn.v -v ../../tsmc13_neg.v +define+MD4 )
+s7::(17Sep2020:14:23:01):( ncverilog testfixture.v ../syn/SET_syn.v -v ../../tsmc13_neg.v +define+MD4 )
+s8::(17Sep2020:14:23:26):( ncverilog testfixture.v ../syn/SET_syn.v -v ../../tsmc13_neg.v +define+MD4 +define+SDF )
+s9::(17Sep2020:14:23:46):( ncverilog testfixture.v ../syn/SET_syn.v -v ../../tsmc13_neg.v +define+MD3 +define+SDF )
