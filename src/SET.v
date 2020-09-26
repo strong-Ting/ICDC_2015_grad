@@ -13,16 +13,18 @@ reg busy;
 reg valid;
 reg [7:0] candidate;
 
-reg [2:0] current_state,next_state;
+reg [4:0] current_state,next_state;
 //state
-parameter INIT = 3'd7;
-parameter IDLE = 3'd0;
-parameter COMMAND = 3'd1;
-parameter OP_0 = 3'd2;
-parameter OP_1 = 3'd3;
-parameter OP_2 = 3'd4;
-parameter OP_3 = 3'd5;
-parameter RESULT = 3'd6;
+parameter INIT = 4'd0;
+parameter IDLE = 4'd1;
+parameter COMMAND = 4'd2;
+parameter OP_0 = 4'd3;
+parameter OP_1 = 4'd4;
+parameter OP_2 = 4'd5;
+parameter OP_3 = 4'd6;
+parameter OP_4 = 4'd7;
+parameter OP_5 = 4'd8;
+parameter RESULT = 4'd9;
 
 //input data reg 
 reg signed [3:0] x1,y1,x2,y2,x3,y3,r1,r2,r3;
@@ -98,13 +100,21 @@ begin
     end
     OP_1: 
     begin
-	next_state = OP_2;
+	    next_state = OP_2;
     end
     OP_2:
     begin
-	next_state = OP_3;
+	    next_state = OP_3;
     end
     OP_3:
+    begin
+	    next_state = OP_4;
+    end
+    OP_4:
+    begin
+	    next_state = OP_5;
+    end
+    OP_5:
         if(x == 4'd8 && y == 4'd8) next_state = RESULT;
         else next_state = OP_0;
     RESULT:
@@ -131,106 +141,69 @@ begin
     else valid <= 1'd0;
 end
 
-reg signed [3:0] x_a1,y_b1;
-reg signed [8:0] a1,b1; 
+reg signed [3:0] x_a,y_b;
+reg signed [8:0] a,b; 
 reg signed [8:0] r1pow2;
-reg signed [8:0] a1_add_b1;
-reg union_A;
-
-reg signed [3:0] x_a2,y_b2;
-reg signed [8:0] a2,b2;
 reg signed [8:0] r2pow2;
-reg signed [8:0] a2_add_b2;
-reg union_B;
-
-reg signed [3:0] x_a3,y_b3;
-reg signed [8:0] a3,b3;
 reg signed [8:0] r3pow2;
-reg signed [8:0] a3_add_b3;
-reg union_C;
-
+reg signed [8:0] a_add_b;
+reg union_A,union_B,union_C;
 
 always@(posedge clk or posedge rst)
 begin
     
     if(rst)
     begin
-        x_a1 <= 4'd0;
-        y_b1 <= 4'd1;
+        x_a <= 4'd0;
+        y_b <= 4'd1;
         
-        a1 <= 9'd0;
-        b1 <= 9'd0;
+        a <= 9'd0;
+        b <= 9'd0;
+
         union_A <= 1'd0;
-    end
-    else if(current_state == OP_0)
-    begin
-	x_a1 <= x-x1;
-    	y_b1 <= y-y1;
-    end
-    else if(current_state == OP_1)
-    begin    
-    	a1 <= x_a1*x_a1;
-    	b1 <= y_b1*y_b1;
-    end
-    else if(current_state == OP_2)
-    begin
-    	union_A <= ( (a1+b1) <= r1pow2 );
-    end
-end
-
-always@(posedge clk or posedge rst)
-begin
-    if(rst)
-    begin
-        x_a2 <= 4'd0;
-        y_b2 <= 4'd1;
-        
-        a2 <= 9'd0;
-        b2 <= 9'd0;
         union_B <= 1'd0;
-    end
-    else if(current_state == OP_0)
-    begin
-	x_a2 <= x-x2;
-    	y_b2 <= y-y2;
-    end
-    else if(current_state == OP_1)
-    begin    
-    	a2 <= x_a2*x_a2;
-    	b2 <= y_b2*y_b2;
-    end
-    else if(current_state == OP_2)
-    begin
-    	union_B <= ( (a2+b2) <= r2pow2 );
-    end
-end
-
-always@(posedge clk or posedge rst)
-begin
-    if(rst)
-    begin
-        x_a3 <= 4'd0;
-        y_b3 <= 4'd1;
-        
-        a3 <= 9'd0;
-        b3 <= 9'd0;
         union_C <= 1'd0;
     end
     else if(current_state == OP_0)
     begin
-	x_a3 <= x-x3;
-    	y_b3 <= y-y3;
+	    x_a <= x-x1; //A
+    	y_b <= y-y1;
     end
     else if(current_state == OP_1)
     begin    
-    	a3 <= x_a3*x_a3;
-    	b3 <= y_b3*y_b3;
+    	a <= x_a*x_a; //A
+    	b <= y_b*y_b;
+
+        x_a <= x-x2; //B
+    	y_b <= y-y2;
     end
     else if(current_state == OP_2)
     begin
-    	union_C <= ( (a3+b3) <= r3pow2 );
+    	union_A <= ( (a+b) <= r1pow2 ); //A
+
+        a <= x_a*x_a; //B
+    	b <= y_b*y_b;
+
+        x_a <= x-x3; //C
+    	y_b <= y-y3;
+    end
+    else if(current_state == OP_3)
+    begin
+        union_B <= ( (a+b) <= r2pow2 ); //B
+
+        a <= x_a*x_a; //C
+    	b <= y_b*y_b;
+    end
+    else if(current_state == OP_4)
+    begin
+        union_C <= ( (a+b) <= r3pow2 ); //C
+    end
+    else if(current_state == OP_5)
+    begin
+        
     end
 end
+
 
 always@(*)
 begin
@@ -288,15 +261,15 @@ begin
     begin
         if(union_A) candidate <= candidate + 8'd1;
     end
-    else if(current_state == OP_3 && mode_buffer == 2'b01)
+    else if(current_state == OP_4 && mode_buffer == 2'b01)
     begin
         if(union_A && union_B) candidate <= candidate + 8'd1;
     end
-    else if(current_state == OP_3 && mode_buffer == 2'b10)
+    else if(current_state == OP_5 && mode_buffer == 2'b10)
     begin
         if( (union_A && !union_B) || (!union_A && union_B)) candidate <= candidate + 8'd1;
     end
-    else if(current_state == OP_3 && mode_buffer == 2'b11)
+    else if(current_state == OP_5 && mode_buffer == 2'b11)
     begin
         if( !(union_A && union_B && union_C) )
         begin
@@ -313,15 +286,15 @@ end
 always@(posedge clk or posedge rst)
 begin
     if(rst) x <= 4'd1;
-    else if(current_state == OP_3 && x == 4'd8) x <= 4'd1;
-    else if(current_state == OP_3) x <= x + 4'd1;
+    else if(current_state == OP_5 && x == 4'd8) x <= 4'd1;
+    else if(current_state == OP_5) x <= x + 4'd1;
     else if(current_state == RESULT) x <= 4'd1;
 end
 
 always@(posedge clk or posedge rst)
 begin
     if(rst) y <= 4'd1;
-    else if(current_state == OP_3 && x == 4'd8) y <= y + 4'd1;
+    else if(current_state == OP_5 && x == 4'd8) y <= y + 4'd1;
     else if(current_state == RESULT) y <= 4'd1;
 end
 

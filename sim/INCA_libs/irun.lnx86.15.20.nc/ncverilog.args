@@ -6,5 +6,5 @@ testfixture.v
 ../syn/SET_syn.v
 -v
 ../../tsmc13_neg.v
-+define+MD3
++define+MD1
 +define+SDF

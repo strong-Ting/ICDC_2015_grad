@@ -18,7 +18,6 @@ maxproc			39834
 
 Runtime environment variables:
 AMD_ENTRYPOINT=vs/server/remoteExtensionHostProcess
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL=true
 COLORTERM=truecolor
 DISPLAY=140.125.44.75:0
 GIT_ASKPASS=/home/lin/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/extensions/git/dist/askpass.sh
@@ -40,7 +39,7 @@ MAIL=/var/spool/mail/lin
 MANPATH=/usr/cad/synopsys/synthesis/cur/doc/syn/man
 NAME=DESKTOP-OFJ877F
 OSTYPE=linux
-PATH=/usr/cad/synopsys/verdi/cur/bin:/usr/cad/synopsys/verdi/cur/nLint/bin:/usr/bin/X11:/usr/cad/synopsys/coreConsultant/cur/bin:/usr/cad/synopsys/synthesis/cur/amd64/syn/bin:/usr/cad/synopsys/lc/cur/bin:/usr/cad/cadence/INCISIV/cur/tools/bin:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin:/home/lin/.local/bin:/home/lin/bin:/home/lin/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/bin:/home/lin/.local/bin:/home/lin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program:Files:(x86)/Common:Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program:Files/Git/cmd:/mnt/c/Program:Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program:Files/PuTTY/:/mnt/c/Users/lin/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/lin/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/lin/AppData/Local/Programs/Microsoft:VS:Code/bin:/mnt/c/altera/13.1/modelsim_ase/win32aloem:/mnt/c/iverilog/bin:/mnt/c/iverilog/gtkwave/bin:/mnt/c/Users/lin/AppData/Local/nvs/:/mnt/c/Users/lin/AppData/Roaming/nvm:/mnt/c/Program:Files/nodejs
+PATH=/usr/cad/synopsys/vcs/cur/bin:/usr/cad/synopsys/vcs/cur/linux/bin:/usr/cad/synopsys/vcs/cur/linux/util:/usr/cad/synopsys/vcs/cur/linux/flexlm:/usr/cad/synopsys/verdi/cur/bin:/usr/cad/synopsys/verdi/cur/nLint/bin:/usr/bin/X11:/usr/cad/synopsys/coreConsultant/cur/bin:/usr/cad/synopsys/synthesis/cur/amd64/syn/bin:/usr/cad/synopsys/lc/cur/bin:/usr/cad/cadence/INCISIV/cur/tools/bin:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin:/home/lin/.vscode-server/bin/58bb7b2331731bf72587010e943852e13e6fd3cf/bin:/home/lin/.local/bin:/home/lin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program:Files:(x86)/Common:Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program:Files/Git/cmd:/mnt/c/Users/lin/AppData/Roaming/nvm:/mnt/c/Program:Files/nodejs:/mnt/c/Program:Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program:Files/PuTTY/:/mnt/c/ctags-2020-07-18_e9fad9cf-x64:/mnt/c/Users/lin/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/lin/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/lin/AppData/Local/Programs/Microsoft:VS:Code/bin:/mnt/c/altera/13.1/modelsim_ase/win32aloem:/mnt/c/iverilog/bin:/mnt/c/iverilog/gtkwave/bin:/mnt/c/Users/lin/AppData/Local/nvs/:/mnt/c/Users/lin/AppData/Roaming/nvm:/mnt/c/Program:Files/nodejs:/mnt/c/ctags-2020-07-18_e9fad9cf-x64:/var/lib/snapd/snap/bin
 PIPE_LOGGING=true
 PWD=/home/lin/github/CIC_2015_grad/sim
 SHELL=/bin/bash
@@ -50,17 +49,20 @@ SYNTHESIS=/usr/cad/synopsys/synthesis/cur
 SYN_MAN_DIR=/usr/cad/synopsys/synthesis/cur/doc/syn/man
 TERM=xterm-256color
 TERM_PROGRAM=vscode
-TERM_PROGRAM_VERSION=1.49.0
+TERM_PROGRAM_VERSION=1.49.1
 USER=lin
+VCS_CC=gcc
+VCS_HOME=/usr/cad/synopsys/vcs/cur
 VENDOR=unknown
 VERBOSE_LOGGING=true
 VSCODE_GIT_ASKPASS_MAIN=/home/lin/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/extensions/git/dist/askpass-main.js
 VSCODE_GIT_ASKPASS_NODE=/home/lin/.vscode-server/bin/e790b931385d72cf5669fcefc51cdf65990efa5d/node
 VSCODE_GIT_IPC_HANDLE=/tmp/vscode-git-eba59decc7.sock
-VSCODE_IPC_HOOK_CLI=/tmp/vscode-ipc-f35dbd33-f30c-4a33-8a27-5f69a2093837.sock
+VSCODE_IPC_HOOK_CLI=/tmp/vscode-ipc-785a3ad6-82b0-42df-a454-adb46fb4813c.sock
 WSLENV=VSCODE_WSL_EXT_LOCATION/up
 WSL_DISTRO_NAME=CentOS8
-WSL_INTEROP=/run/WSL/13661_interop
+WSL_INTEROP=/run/WSL/273_interop
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
 _IRUNROOT_=/usr/cad/cadence/INCISIV/cur/tools
 CDS_ARCH=lnx86
 NCRUNMODE=ncverilog:./INCA_libs/irun.lnx86.15.20.nc
@@ -73,16 +75,16 @@ argv[1]=testfixture.v
 argv[2]=../syn/SET_syn.v
 argv[3]=-v
 argv[4]=../../tsmc13_neg.v
-argv[5]=+define+MD3
+argv[5]=+define+MD1
 argv[6]=+define+SDF
-77 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.040 user,  60.06M sys,  0.00M vm
-78 VC callback profile - scalar:0 vector:0
-79 Thu Sep 17 14:23:52 2020
-80 pliAppInit
-81 FSDB_GATE is disabled.
-82 Enable Parallel Dumping.
-83 pliAppMiscSet: New Sim Round
-84 pliEntryInit
-85 LIBSSCORE=found /usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX/libsscore_ius152.so through $LD_LIBRARY_PATH setting.
-86 Sim process exit
+79 profile - 100
+          CPU/Mem usage: 0.020 sys,  0.040 user,  60.05M sys,  0.00M vm
+80 VC callback profile - scalar:0 vector:0
+81 Sat Sep 26 15:42:02 2020
+82 pliAppInit
+83 FSDB_GATE is disabled.
+84 Enable Parallel Dumping.
+85 pliAppMiscSet: New Sim Round
+86 pliEntryInit
+87 LIBSSCORE=found /usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX/libsscore_ius152.so through $LD_LIBRARY_PATH setting.
+88 Sim process exit

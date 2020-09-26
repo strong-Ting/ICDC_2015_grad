@@ -10,7 +10,7 @@ testfixture.v
 -VFILE
 ../../tsmc13_neg.v
 -DEFINE
-MD3
+MD1
 -DEFINE
 SDF
 -CDSLIB

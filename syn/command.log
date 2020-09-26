@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version Q-2019.12 for linux64 -- Nov 26, 2019
-#@ # Date:   Thu Sep 17 14:21:13 2020
+#@ # Date:   Sat Sep 26 15:39:54 2020
 #@ # Run by: lin@DESKTOP-OFJ877F
 #@ 
 
@@ -6696,8 +6696,8 @@ source /home/lin/github/CIC_2015_grad/syn/.synopsys_dc.setup
 #@ 
 #@ # -- End source /home/lin/github/CIC_2015_grad/syn/.synopsys_dc.setup
 
-source dc_syn.tcl
-#@ # -- Starting source dc_syn.tcl
+source -echo -verbose /home/lin/github/CIC_2015_grad/syn/dc_syn.tcl
+#@ # -- Starting source /home/lin/github/CIC_2015_grad/syn/dc_syn.tcl
 
 #@ #Read All Files
 #@ read_verilog ../src/SET.v
@@ -6742,6 +6742,7 @@ source dc_syn.tcl
 #@ report_timing > timing.log
 #@ report_qor   >  SET_syn.qor
 #@ 
-#@ # -- End source dc_syn.tcl
+#@ # -- End source /home/lin/github/CIC_2015_grad/syn/dc_syn.tcl
 
+exiyt
 exit

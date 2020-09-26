@@ -2,7 +2,7 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-+define+MD3
++define+MD1
 +define+SDF
 -noshowtop
 -MESSAGES
