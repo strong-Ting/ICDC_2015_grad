@@ -34,3 +34,4 @@ BSSLib.lib++/
 *.zip
 sram*
 rom*.v
+sim/
